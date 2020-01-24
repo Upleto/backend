@@ -147,3 +147,46 @@ module.exports =  {
 };
 ```
 
+### [jest](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
+1. install required packages
+```sh
+npm i -D jest babel-jest
+npm i -D @types/jest
+```
+2. add scripts in `package.json`
+```json
+{
+  "scripts": {
+    "test": "tsc & jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+}
+```
+3. create `jest.config.js`
+```js
+module.exports = {
+  moduleFileExtensions: ['ts', 'js'],
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?)$',
+  globals: {
+    NODE_ENV: 'test',
+  },
+  transform: {
+    '^.+\\.(j|t)s$': 'babel-jest',
+  },
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    'jest.setup.js',
+    '<rootDir>/configs/',
+    'jest.config.js',
+    '.json',
+    '.snap',
+  ],
+  coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/__mocks__/mocks.js',
+    '\\.(css|less|scss)$': '<rootDir>/__mocks__/mocks.js',
+  },
+};
+```

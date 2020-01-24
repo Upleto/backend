@@ -15,4 +15,6 @@ class App {
 
 const ab = new App(3, 5);
 
+export default App;
+
 ab.getA().then(console.log);
