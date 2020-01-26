@@ -23,7 +23,13 @@
     "url": "https://github.com/Upleto/backend/issues"
   },
   "homepage": "https://github.com/Upleto/backend#readme",
-  "dependencies": {},
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^8.0.6"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
@@ -32,6 +38,11 @@
     "@babel/preset-typescript": "^7.8.3",
     "@babel/register": "^7.8.3",
     "@types/jest": "^24.9.1",
+    "@types/koa": "^2.11.0",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-json": "^2.0.18",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-router": "^7.4.0",
     "@types/node": "^13.5.0",
     "@typescript-eslint/eslint-plugin": "^2.17.0",
     "@typescript-eslint/parser": "^2.17.0",

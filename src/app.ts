@@ -1,20 +1,21 @@
-class App {
-  constructor(private a: number, private b: number) {
-    this.a = a;
-    this.b = b;
-  }
+import Koa from 'koa';
+import Router from 'koa-router';
+import logger from 'koa-logger';
+import json from 'koa-json';
 
-  async getA(): Promise<number> {
-    return this.a;
-  }
+const app = new Koa();
+const router = new Router();
 
-  async getB(): Promise<number> {
-    return this.b;
-  }
-}
+router.get('/', async (ctx, next) => {
+  ctx.body = { msg: 'hello world' };
 
-const ab = new App(3, 5);
+  await next();
+});
 
-export default App;
+app.use(json());
+app.use(logger());
 
-ab.getA().then(console.log);
+app.use(router.routes()).use(router.allowedMethods());
+console.log(1, app);
+
+export default app;

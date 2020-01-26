@@ -1,3 +1,8 @@
 require('@babel/register')({ extensions: ['.js', '.ts'] });
 // import all other files after the babel hook
-require('./app');
+
+const app = require('./app').default;
+
+app.listen(3000, () => {
+  console.log('koa started on port 3000');
+});
