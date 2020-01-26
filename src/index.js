@@ -4,5 +4,5 @@ require('@babel/register')({ extensions: ['.js', '.ts'] });
 const app = require('./app').default;
 
 app.listen(3000, () => {
-  console.log('koa started on port 3000');
+  console.log('koa started on http://localhost:3000/');
 });
