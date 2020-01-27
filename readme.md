@@ -233,3 +233,18 @@ app.use(router.routes()).use(router.allowedMethods());
 
 export default app;
 ```
+
+### [Argon2 encrypt](https://github.com/jdconley/argon2themax)
+1. install gcc on the OS
+2. install `node-gyp` package globally
+```sh
+npm i -g node-gyp
+```
+3. install `node-argon2` package (replace "g++-6" with the correct GCC or Clang binary name)
+```sh
+CXX=g++-6 npm i -S argon2
+```
+4. install `argon2themax` package (for best tuned options)
+```sh
+npm i -S argon2themax
+```
