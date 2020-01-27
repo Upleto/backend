@@ -1,5 +1,7 @@
 import Koa from 'koa';
 import Router from 'koa-router';
+import cors from '@koa/cors';
+import helmet from 'koa-helmet';
 import logger from 'koa-logger';
 import json from 'koa-json';
 import bodyParser from 'koa-bodyparser';
@@ -20,6 +22,8 @@ router.post('/', async (ctx, next) => {
   await next();
 });
 
+app.use(cors());
+app.use(helmet());
 app.use(json());
 app.use(logger());
 app.use(bodyParser());

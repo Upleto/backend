@@ -194,13 +194,15 @@ module.exports = {
 ### [Koa](https://medium.com/@masnun/typescript-with-koa-part-1-c4843f16a4ad)
 1. install required package
 ```sh
-npm i -S koa koa-bodyparser koa-json koa-logger koa-router
-npm i -D @types/koa @types/koa-router @types/koa-json @types/koa-logger @types/koa-bodyparser
+npm i -S koa koa-bodyparser koa-json koa-logger koa-router koa-helmet koa-jwt @koa/cors
+npm i -D @types/koa @types/koa-router @types/koa-json @types/koa-logger @types/koa-bodyparser @types/koa__cors @types/koa-helmet
 ```
 2. adding example `./src/app.ts`
 ```ts
 import Koa from 'koa';
 import Router from 'koa-router';
+import cors from '@koa/cors';
+import helmet from 'koa-helmet';
 import logger from 'koa-logger';
 import json from 'koa-json';
 import bodyParser from 'koa-bodyparser';
@@ -221,6 +223,8 @@ router.post('/', async (ctx, next) => {
   await next();
 });
 
+app.use(cors());
+app.use(helmet());
 app.use(json());
 app.use(logger());
 app.use(bodyParser());
