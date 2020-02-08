@@ -5,6 +5,7 @@ import helmet from 'koa-helmet';
 import logger from 'koa-logger';
 import json from 'koa-json';
 import bodyParser from 'koa-bodyparser';
+import authz from './enforcer/routeBased/authz';
 
 const app = new Koa();
 const router = new Router();
@@ -27,6 +28,8 @@ app.use(helmet());
 app.use(json());
 app.use(logger());
 app.use(bodyParser());
+
+app.use(authz());
 
 app.use(router.routes()).use(router.allowedMethods());
 

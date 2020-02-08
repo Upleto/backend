@@ -7,3 +7,4 @@ public/build/*
 .env
 out/
 lib/
+src/config/

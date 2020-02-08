@@ -197,7 +197,7 @@ module.exports = {
 npm i -S koa koa-bodyparser koa-json koa-logger koa-router koa-helmet koa-jwt @koa/cors
 npm i -D @types/koa @types/koa-router @types/koa-json @types/koa-logger @types/koa-bodyparser @types/koa__cors @types/koa-helmet
 ```
-2. adding example `./src/app.ts`
+2. add example `./src/app.ts`
 ```ts
 import Koa from 'koa';
 import Router from 'koa-router';
@@ -248,3 +248,68 @@ CXX=g++-6 npm i -S argon2
 ```sh
 npm i -S argon2themax
 ```
+
+### [Typeorm](https://medium.com/javascript-in-plain-english/creating-a-rest-api-with-jwt-authentication-and-role-based-authorization-using-typescript-fbfa3cab22a4)
+1. install required packages
+```sh
+npm i -S typeorm reflect-metadata class-validator
+npm i -D @babel/plugin-proposal-decorators babel-plugin-transform-typescript-metadata
+```
+2. change "plugins" in `babel.config.js`
+```js
+{
+  plugins: [
+    'babel-plugin-transform-typescript-metadata',
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/proposal-class-properties', { loose: true }],
+  ],
+}
+```
+3. ensure the following settings in "compilerOptions" `tsconfig.json`
+```json
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  }
+}
+```
+4. (optional) install `dotenv` package
+```sh
+npm i -S dotenv
+```
+5. add `ormconfi.js`
+```js
+require('dotenv').config();
+
+module.exports = {
+  type: 'mysql',
+  host: process.env.db_host,
+  port: process.env.db_port,
+  username: process.env.db_username,
+  password: process.env.db_password,
+  database: process.env.db_database,
+  synchronize: false,
+  logging: false,
+  entities: ['src/entity/**/*.ts'],
+  migrations: ['src/migration/**/*.ts'],
+  subscribers: ['src/subscriber/**/*.ts'],
+  cli: {
+    entitiesDir: 'src/entity',
+    migrationsDir: 'src/migration',
+    subscribersDir: 'src/subscriber',
+  },
+};
+```
+6. (optional) add `.env`
+```
+db_host=***
+...
+```
+
+### [Casbin](https://github.com/casbin/node-casbin)
+1. install required packages
+```sh
+npm i -S casbin
+```
+2. 

@@ -1,5 +1,6 @@
 require('@babel/register')({ extensions: ['.js', '.ts'] });
 // import all other files after the babel hook
+require('./util/database/connection');
 
 const app = require('./app').default;
 
