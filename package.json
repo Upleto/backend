@@ -28,7 +28,7 @@
     "argon2": "^0.25.1",
     "argon2themax": "^1.2.0",
     "casbin": "^3.1.0",
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.14.0",
     "dotenv": "^8.2.0",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
